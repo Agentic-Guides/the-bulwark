@@ -95,7 +95,7 @@ committed.
 
 ## Live demo & repo
 
-- **Live demo (web simulator):** `https://ozy777-the-bulwark.static.hf.space/`
+- **Live demo (web simulator):** `https://ozy777-the-bulwark-static.static.hf.space/`
 - **Source:** this repository · MIT License
 
 ---
