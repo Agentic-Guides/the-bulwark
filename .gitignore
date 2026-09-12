@@ -1,0 +1,55 @@
+# ---- SECRETS - never commit ----
+.env
+*.env
+.env.*
+*.env.local
+
+# ---- keys / credentials ----
+*key*.cjs
+*key*.py
+*secret*
+*credential*
+*.pem
+*.p12
+private_*
+snapshot_*
+
+# ---- tokens ----
+*.token
+.hf_token
+hf_token*
+
+# ---- dev / deploy / manage scripts that may embed secrets ----
+_*.py
+_*.cjs
+web_*.py
+web_*.html
+scripts_local/
+scratch/
+
+# ---- python ----
+__pycache__/
+*.pyc
+.venv*/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# ---- node ----
+node_modules/
+
+# ---- build / media ----
+out/
+audio/
+public/audio/
+*.mp4
+*.mp3
+
+# ---- editors / os ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---- keep architecture diagram but not stray images ----
+!architecture.png
