@@ -63,6 +63,24 @@ chain** — who asked for what, and who refused, cannot be rewritten.
 The gate is **deterministic, model-free, and dependency-free** — a refusal can
 never depend on a language model's mood at 3 a.m.
 
+### Optional semantic layer (Amazon Bedrock) — AWS Builder
+
+When AWS credentials are configured, THE BULWARK additionally calls **Amazon
+Bedrock (Anthropic Claude)** to judge intent that keywords miss — disguised
+malice, permission creep phrased innocently. It's an AWS Builder layer on top
+of the local engine:
+
+```bash
+# optional — only needed to enable the Bedrock semantic layer
+# set these in the environment / .env (never commit):
+#   AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION
+#   BEDROCK_MODEL_ID (default: anthropic.claude-3-5-sonnet-20241022-v2:0)
+```
+
+With **no** credentials configured, the guard **automatically falls back** to
+the deterministic engine — so the demo always runs, offline, with zero secrets
+committed.
+
 ---
 
 ## MCP tools

@@ -15,6 +15,7 @@ def test_detector():
 
 
 def test_server_tools():
+    from bulwark import semantic
     good = json.dumps(detector.GOOD_TOOLS)
     evil = json.dumps(detector.EVIL_TOOLS)
     g = server.scan_tools(good)
@@ -22,8 +23,12 @@ def test_server_tools():
     gjson = json.loads(g); ejson = json.loads(e)
     print("GOOD scan:", gjson["overall"], "| next:", gjson["next"])
     print("EVIL scan:", ejson["overall"], "| next:", ejson["next"])
+    print("semantic enabled (credentials present?):", gjson["semantic"]["enabled"])
     assert gjson["overall"] == "ok"
     assert ejson["overall"] == "block"
+    # offline / no-cred path must still be graceful
+    if not gjson["semantic"]["enabled"]:
+        assert gjson["semantic"]["notes"] == []
     # permit + ledger
     d = json.loads(server.permit_action("attach pharmacy_bill", "deny"))
     ls = json.loads(server.ledger_status())

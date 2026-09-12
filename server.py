@@ -17,6 +17,7 @@ import json
 from mcp.server.fastmcp import FastMCP
 
 from bulwark import detector
+from bulwark import semantic
 
 mcp = FastMCP("THE BULWARK")
 
@@ -57,10 +58,29 @@ def scan_tools(tools: str) -> str:
     overall_level = "block" if any(v["level"] == "block" for v in verdicts) else (
         "caution" if any(v["level"] == "caution" for v in verdicts) else "ok")
     _add_block("scan", {"count": len(verdicts), "overall": overall_level, "tools": names})
+
+    # Optional semantic layer: when AWS credentials are configured, ask Bedrock
+    # to catch intent that keywords miss. Falls back silently when offline.
+    semantic_enabled = semantic.bedrock_client() is not None
+    semantic_notes = []
+    if semantic_enabled:
+        for t in parsed:
+            r = semantic.classify_with_bedrock(
+                t.get("name", "?"), t.get("description", ""))
+            if r.get("verdict") in ("block", "caution", "malicious"):
+                semantic_notes.append(
+                    f"{t.get('name','?')}: {r.get('verdict')} — {r.get('reason','')}")
+                if r["verdict"] == "malicious":
+                    overall_level = "block"
+
     return json.dumps(
         {
             "overall": overall_level,
             "tools": verdicts,
+            "semantic": {
+                "enabled": semantic_enabled,
+                "notes": semantic_notes,
+            },
             "ledger_hash": _ledger[-1]["hash"] if _ledger else "",
             "next": _next_step(overall_level),
         }, ensure_ascii=False, indent=1,
