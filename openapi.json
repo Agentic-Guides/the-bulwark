@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "THE BULWARK",
+    "version": "1.0.0",
+    "description": "Guard MCP server for Alexa+ — classify an add-on's tool definitions into ok/caution/block, pinned to a tamper-evident SHA-256 ledger. Deterministic core plus optional Bedrock semantic layer."
+  },
+  "servers": [{ "url": "http://localhost:8000" }],
+  "paths": {
+    "/scan": {
+      "post": {
+        "summary": "Scan tool definitions and classify each into ok / caution / block",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tools": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "description": { "type": "string" },
+                        "schema": { "type": "object" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Per-tool verdicts + family-readable summary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "verdicts": { "type": "array" },
+                    "overall_level": { "enum": ["ok", "caution", "block"] }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

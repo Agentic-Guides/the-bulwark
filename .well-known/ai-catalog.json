@@ -1,0 +1,9 @@
+{
+  "name": "THE BULWARK",
+  "version": "1.0.0",
+  "description": "Open-source guard MCP server protecting a home's Alexa+ from malicious add-ons — deterministic 4-class scanner plus tamper-evident SHA-256 ledger, with optional Bedrock semantic layer.",
+  "url": "https://github.com/Agentic-Guides/the-bulwark",
+  "license": "MIT",
+  "tags": ["mcp", "alexa", "guard", "home-security", "scanning", "ledger", "hackathon"],
+  "capabilities": ["scan", "permit", "ledger"]
+}

@@ -1,0 +1,30 @@
+# THE BULWARK
+
+> **Your home has rules. Now your AI has to follow them.**
+
+THE BULWARK is a guard MCP server for **Alexa+**. It sits between a home and every
+add-on, checks what a tool actually asks for, and lets the family say **yes** or
+**no** — out loud — before it touches a lock, a card, or money.
+
+Built for the **Amazon Developer Hackathon (Alexa+ track)**, MCP spec 2025-11-25
+over Streamable HTTP, powered by a deterministic gate plus an optional AWS Bedrock
+semantic layer.
+
+## For AI agents
+
+- **What this is**: an MCP server that inspects an add-on's tool definitions and
+  classifies each into ok / caution / block, pinning every decision to a
+  tamper-evident SHA-256 hash chain.
+- **What it can do**: `scan_tools(tools)`, `permit_action(action, decision)`,
+  `ledger_status()`.
+- **How to use it**: `pip install -r requirements.txt && python server.py`
+  (port 8000, Streamable HTTP). No GPU, no RPC, no secrets by default.
+- **Key idea**: a home has no security team — the guard is deterministic at its
+  core, with an optional Bedrock semantic layer for intent rules-only keywords miss.
+
+## Key files
+
+- [server.py](server.py) — the MCP server (FastMCP / Streamable HTTP)
+- [bulwark/detector.py](bulwark/detector.py) — deterministic 4-class scanner
+- [bulwark/semantic.py](bulwark/semantic.py) — optional Bedrock semantic layer
+- [README.md](README.md) — full docs

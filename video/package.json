@@ -1,0 +1,16 @@
+{
+  "name": "the-bulwark-video",
+  "private": true,
+  "scripts": {
+    "render": "remotion render src/index.ts Bulwark out/bulwark-video-only.mp4",
+    "still": "remotion still src/index.ts Bulwark out/still.png --frame=120"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@remotion/cli": "^4.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "name": "THE BULWARK",
+  "version": "1.0.0",
+  "description": "Guard MCP server for Alexa+: classify an add-on's tool definitions into ok/caution/block, pinned to a tamper-evident SHA-256 ledger. Deterministic core plus optional Bedrock semantic layer.",
+  "url": "https://github.com/Agentic-Guides/the-bulwark",
+  "license": "MIT",
+  "capabilities": [
+    {
+      "name": "scan_tools",
+      "description": "Classify a list of MCP tool definitions into ok / caution / block",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "tools": {
+            "type": "array",
+            "items": { "type": "object" }
+          }
+        },
+        "required": ["tools"]
+      },
+      "endpoint": "/scan"
+    },
+    {
+      "name": "permit_action",
+      "description": "Record the family's allow/deny on the tamper-evident ledger"
+    },
+    {
+      "name": "ledger_status",
+      "description": "Show the immutable evidence chain"
+    }
+  ]
+}

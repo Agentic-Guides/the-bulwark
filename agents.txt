@@ -1,0 +1,15 @@
+# THE BULWARK — agents.txt
+Name: THE BULWARK
+Tagline: Your home has rules. Now your AI has to follow them.
+Type: guard MCP server (Alexa+ add-on scanner)
+License: MIT
+Protocols: MCP (Streamable HTTP 2025-11-25)
+Capabilities:
+  - scan_tools: classify an add-on's tool definitions into ok / caution / block (4 attack classes)
+  - permit_action: record the family's allow/deny on a tamper-evident SHA-256 ledger
+  - ledger_status: show the immutable evidence chain of what the home allowed / refused
+  - semantic_layer: optional Amazon Bedrock intent detection (only with AWS creds; graceful offline fallback)
+Authorization: none by default (deterministic core needs no key; Bedrock layer optional)
+Language: Python 3.11+ (CPU-only, free, no GPU)
+Repo: https://github.com/Agentic-Guides/the-bulwark
+Live demo: https://ozym777-the-bulwark-static.static.hf.space/
