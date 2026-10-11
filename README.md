@@ -1,5 +1,7 @@
 # THE BULWARK
 
+[![M8ven Score](https://m8ven.ai/badge/mcp/agentic-guides-the-bulwark-q2a817)](https://m8ven.ai/mcp/agentic-guides-the-bulwark-q2a817?s=readme)
+
 > **Your home has rules. Now your AI has to follow them.**
 
 What happens when an Alexa+ add-on stops being helpful and quietly asks for
