@@ -14,8 +14,9 @@ and every add-on, checks what a tool actually asks for, and lets the family say
 **yes** or **no** — out loud — before it touches a lock, a card, or money.
 
 Built for the **Amazon Developer Hackathon (Alexa+ track)**, MCP spec
-**2025-11-25** over **Streamable HTTP**, powered by AWS **Strands Agents SDK**'s
-deterministic gate pattern.
+**2025-11-25** over **Streamable HTTP**, on a **FastMCP** server with a
+deterministic, model-free gate as the core -- plus an optional **Amazon Bedrock**
+semantic layer when AWS credentials are configured.
 
 ---
 
