@@ -1,5 +1,7 @@
 # THE BULWARK
 
+<img src="assets/devpost-bulwark.png" alt="THE BULWARK — a guard MCP server for Alexa+" width="100%">
+
 [![M8ven Score](https://m8ven.ai/badge/mcp/agentic-guides-the-bulwark-q2a817)](https://m8ven.ai/mcp/agentic-guides-the-bulwark-q2a817?s=readme)
 
 > **Your home has rules. Now your AI has to follow them.**
@@ -66,6 +68,11 @@ chain** — who asked for what, and who refused, cannot be rewritten.
 The gate is **deterministic, model-free, and dependency-free** — a refusal can
 never depend on a language model's mood at 3 a.m.
 
+<img src="assets/cover-2-scan.png" alt="The same rules run on a harmless add-on (ok) and a poisoned one (block)" width="100%">
+
+*The same rules, run on a harmless add-on and a poisoned one — `node test.py` prints
+these two verdicts on a machine with no GPU, no key, and no network.*
+
 ### Optional semantic layer (Amazon Bedrock) — AWS Builder
 
 When AWS credentials are configured, THE BULWARK additionally calls **Amazon
@@ -98,7 +105,10 @@ committed.
 
 ## Live demo & repo
 
-- **Live demo (web simulator):** `https://ozy777-the-bulwark-static.static.hf.space/`
+<img src="assets/cover-1-hero.png" alt="THE BULWARK" width="100%">
+
+- **Live demo (web simulator):** `https://ozy777-the-bulwark-static.static.hf.space/` — press either
+  Scan button, or write your own add-on and scan that
 - **Source:** this repository · MIT License
 
 ---
@@ -134,6 +144,11 @@ Alexa+ (home speaker)                 THE BULWARK MCP server
                                         │  permit_action() ──► SHA-256 hash chain ledger
                                         │  ledger_status()  ──► tamper-evident evidence
 ```
+
+<img src="assets/cover-3-ledger.png" alt="Every scan appends to an append-only hash chain" width="100%">
+
+*The ledger the demo shows: two scans, chained. `ledger_status()` returns the same
+chain through MCP.*
 
 ---
 

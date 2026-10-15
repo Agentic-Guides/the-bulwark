@@ -11,6 +11,8 @@ pinned: false
 
 # THE BULWARK
 
+<img src="assets/card-bulwark.png" alt="THE BULWARK" width="100%">
+
 **Your home has rules. Now your AI has to follow them.**
 
 A guard MCP server for **Alexa+**. It sits between a home and every add-on,
